@@ -49,7 +49,7 @@ def render_ascii_dungeon(design):
 
 # Render the example thingie to the screen
 with open(sys.argv[1]) as myfile:
-    data=myfile.read().replace('\n', '')
+    data = myfile.read().replace('\n', '')
 
 design = parse_json_result(data)
 print render_ascii_dungeon(design)

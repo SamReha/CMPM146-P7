@@ -1,0 +1,1 @@
+clingo/gringo level-core.lp level-style.lp level-sim.lp level-shortcuts.lp  | clingo/reify | clingo/clingo - meta.lp metaD.lp metaO.lp metaS.lp --parallel-mode=4 --outf=2 > example_capture.json

@@ -34,5 +34,5 @@ def render_ascii_dungeon(design):
 with open(sys.argv[1]) as myfile:
     data = myfile.read().replace('\n', '')
 
-design = solve(sys.argv[1])
+design = solve(sys.argv)
 print render_ascii_dungeon(design)

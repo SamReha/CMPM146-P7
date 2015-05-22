@@ -1,5 +1,3 @@
-%%file level-shortcuts.lp
-
 __level_design(sprite(T,Name)) :- sprite(T,Name).
     
 wander :- width*width/2 { touch(T,S) }.

@@ -40,19 +40,19 @@ def parse_json_result(out):
     
 def solve():
     """Run clingo with the provided argument list and return the parsed JSON result."""
-    COMMAND = "clingo\gringo level-core.lp level-style.lp level-sim.lp level-shortcuts.lp | clingo\reify | clingo\clingo - meta.lp metaD.lp metaO.lp metaS.lp"
-    
     print "About to Gringo!"
     gringo = subprocess.Popen(['clingo\gringo', 'level-core.lp', 'level-style.lp', 'level-sim.lp', 'level-shortcuts.lp'], stdout=subprocess.PIPE, shell=True)
+    #gringo = subprocess.Popen(['clingo\gringo', 'meta.lp', 'metaD.lp', 'metaO.lp', 'metaS.lp'], stdout=subprocess.PIPE, shell=True)
     print "About to Reify!"
-    reify = subprocess.Popen(['clingo\reify'], stdin=gringo.stdout, stdout=subprocess.PIPE, shell=True)
+    reify = subprocess.Popen(['clingo\\reify'], stdin=gringo.stdout, stdout=subprocess.PIPE, shell=True)
     print "About to Clingo!"
-    clingo = subprocess.Popen(['clingo\clingo', '-', 'meta.lp', 'metaD.lp', 'metaO.lp', 'metaS.lp', '--outf=2'], stdin=reify.stdout, stdout=subprocess.PIPE, shell=True)
+    #clingo = subprocess.Popen(['clingo\clingo', 'meta.lp', 'metaD.lp', 'metaO.lp', 'metaS.lp', '--outf=2'], stdin=reify.stdout, stdout=subprocess.PIPE, shell=True)
+    clingo = subprocess.Popen(['clingo\clingo', 'level-core.lp', 'level-style.lp', 'level-sim.lp', '--outf=2'], stdin=reify.stdout, stdout=subprocess.PIPE, shell=True)
     out, err = clingo.communicate()
     if err:
         print "ERR: " + err
         
-    print "OUT: " + out
+    #print "OUT: " + out
         
     return parse_json_result(out)
     

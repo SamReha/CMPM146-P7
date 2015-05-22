@@ -1,5 +1,3 @@
-%%file level-sim.lp
-
 % states:
 % 1 --> initial
 % 2 --> after picking up gem

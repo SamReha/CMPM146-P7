@@ -1,5 +1,3 @@
-%%file level-core.lp
-
 #const width=10.
 
 param("width",width).

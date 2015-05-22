@@ -1,5 +1,3 @@
-%%file level-style.lp
-
 % style: at least half of the map has wall sprites
 :- not (width*width)/2 { sprite(T,wall) }.
  
